@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExcelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get('/', [ExcelController::class, 'users'])->name('admin.show_all_data');
+Route::post('/admin/import-excel', [ExcelController::class, 'importExcel'])->name('admin.import_excel');
